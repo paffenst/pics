@@ -5,21 +5,21 @@ import ImageList from './ImageList';
 
 
 class App extends React.Component {
- 
-state = { images: [] };
+
+    state = { images: [] };
 
     onSearchSumbit = async (term) => {
         const response = await unsplash.get('https://api.unsplash.com/search/photos', {
             params: { query: term }
         });
-        this.setState({images: response.data.results });
+        this.setState({ images: response.data.results });
     }
 
     render() {
         return (
             <div className="ui container" style={{ marginTop: '10px' }}>
-                <SearchBar  onSubmit={this.onSearchSumbit} />
-                <ImageList images={this.state.images}/> 
+                <SearchBar onSubmit={this.onSearchSumbit} />
+                <ImageList images={this.state.images} />
             </div>
         );
     }
